@@ -1,7 +1,7 @@
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-from utils.recipes.factory import make_recipe
-from django.http  import HttpResponse, Http404
+
 from recipes.models import Recipe
+
 
 def home(request):
     recipes = Recipe.objects.filter(
