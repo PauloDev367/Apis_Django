@@ -8,6 +8,8 @@ class AlunosViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
     
+# Viewsets incluem ações como criar, listar, atualizar ou deletar.
+# A utilização de Viewset pode evitar repetir a lógica das views.
 class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
     queryset = Curso.objects.all()
