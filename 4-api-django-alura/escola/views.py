@@ -1,11 +1,15 @@
 from rest_framework import viewsets, generics
 from escola.models import Aluno, Curso, Matricula
 from escola.serializer import CursoSerializer, AlunoSerializer, MatriculaSerializer, ListaMatriculasAlunoSerializer, ListaAlunosMatriculasSerializer
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class AlunosViewSet(viewsets.ModelViewSet):
     """Exibindo todos alunos e alunas"""
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     
 # Viewsets incluem ações como criar, listar, atualizar ou deletar.
 # A utilização de Viewset pode evitar repetir a lógica das views.
